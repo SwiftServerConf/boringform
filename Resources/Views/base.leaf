@@ -23,7 +23,7 @@
       </div>
     </nav>
     <div class="container pt-5 pb-5">
-      <h1 class="text-white text-center pb-2">Workshops Feedback</h1>
+      <h1 class="text-white text-center pb-2">#if(pageTitle) { #(pageTitle) } else {Workshops Feedback}</h1>
       <div class="card bg-white">
         #get(body)
       </div>

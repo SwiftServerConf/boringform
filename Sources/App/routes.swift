@@ -1,5 +1,6 @@
 import Vapor
 import FluentMySQL
+import Authentication
 
 public func routes(_ router: Router) throws {
   
@@ -10,6 +11,13 @@ public func routes(_ router: Router) throws {
     
     return try req.view().render("index", IndexContext())
   }
+  
+  let authController = AuthController()
+  router.get(Routes.login, use: authController.renderLogin)
+  router.get(Routes.register, use: authController.renderRegister)
+  router.get(Routes.logout, use: authController.logout)
+  router.post(Routes.login, use: authController.login)
+  router.post(Routes.register, use: authController.register)
   
   let outcomeController = OutcomeController()
   router.get(Routes.rangeOutcome, use: outcomeController.rangeOutcome)
@@ -22,31 +30,38 @@ public func routes(_ router: Router) throws {
   let questionController = QuestionController()
   let answerController = AnswerController(questionController: questionController)
   
+  // MARK: Protected
+  
+  let authSessionRouter = router.grouped(User.authSessionsMiddleware())
+  authSessionRouter.post("login", use: authController.login)
+  
+  let protectedRouter = authSessionRouter.grouped(RedirectMiddleware<User>(path: "/login"))
+  
   // GET
-  router.get(Routes.q1, use: questionController.question1)
-  router.get(Routes.q2, use: questionController.question2)
-  router.get(Routes.q3, use: questionController.question3)
-  router.get(Routes.q4, use: questionController.question4)
-  router.get(Routes.q5, use: questionController.question5)
-  router.get(Routes.q6, use: questionController.question6)
-  router.get(Routes.q7, use: questionController.question7)
-  router.get(Routes.q8, use: questionController.question8)
-  router.get(Routes.q9, use: questionController.question9)
-  router.get(Routes.q10, use: questionController.question10)
-  router.get(Routes.q11, use: questionController.question11)
+  protectedRouter.get(Routes.q1, use: questionController.question1)
+  protectedRouter.get(Routes.q2, use: questionController.question2)
+  protectedRouter.get(Routes.q3, use: questionController.question3)
+  protectedRouter.get(Routes.q4, use: questionController.question4)
+  protectedRouter.get(Routes.q5, use: questionController.question5)
+  protectedRouter.get(Routes.q6, use: questionController.question6)
+  protectedRouter.get(Routes.q7, use: questionController.question7)
+  protectedRouter.get(Routes.q8, use: questionController.question8)
+  protectedRouter.get(Routes.q9, use: questionController.question9)
+  protectedRouter.get(Routes.q10, use: questionController.question10)
+  protectedRouter.get(Routes.q11, use: questionController.question11)
   
   // POST
-  router.post(Routes.q1, use: answerController.fourAnswer)
-  router.post(Routes.q2, use: answerController.rangeAnswer)
-  router.post(Routes.q3, use: answerController.freeAnswer)
-  router.post(Routes.q4, use: answerController.freeAnswer)
-  router.post(Routes.q5, use: answerController.twoAnswer)
-  router.post(Routes.q6, use: answerController.rangeAnswer)
-  router.post(Routes.q7, use: answerController.rangeAnswer)
-  router.post(Routes.q8, use: answerController.rangeAnswer)
-  router.post(Routes.q9, use: answerController.threeAnswer)
-  router.post(Routes.q10, use: answerController.threeAnswer)
-  router.post(Routes.q11, use: answerController.freeAnswer)
+  protectedRouter.post(Routes.q1, use: answerController.fourAnswer)
+  protectedRouter.post(Routes.q2, use: answerController.rangeAnswer)
+  protectedRouter.post(Routes.q3, use: answerController.freeAnswer)
+  protectedRouter.post(Routes.q4, use: answerController.freeAnswer)
+  protectedRouter.post(Routes.q5, use: answerController.twoAnswer)
+  protectedRouter.post(Routes.q6, use: answerController.rangeAnswer)
+  protectedRouter.post(Routes.q7, use: answerController.rangeAnswer)
+  protectedRouter.post(Routes.q8, use: answerController.rangeAnswer)
+  protectedRouter.post(Routes.q9, use: answerController.threeAnswer)
+  protectedRouter.post(Routes.q10, use: answerController.threeAnswer)
+  protectedRouter.post(Routes.q11, use: answerController.freeAnswer)
 }
 
 class Question{}

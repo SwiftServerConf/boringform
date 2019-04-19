@@ -7,6 +7,9 @@
 
 enum Routes {
   static var index = "/"
+  static var login = "login"
+  static var register = "register"
+  static var logout = "logout"
   static var rangeOutcome = "range-outcome"
   static var fourOutcome = "four-outcome"
   static var freeOutcome = "free-outcome"

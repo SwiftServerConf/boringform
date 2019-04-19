@@ -36,7 +36,7 @@ body {
   vertical-align: middle !important;
 }
 
-.card form .card {
+.form-navigation + form .card {
   height: 235px;
 }
 

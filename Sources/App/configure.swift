@@ -2,6 +2,7 @@ import Leaf
 import Vapor
 import MySQL
 import FluentMySQL
+import Authentication
 
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
   try services.register(LeafProvider())
@@ -28,6 +29,8 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
   
   // Migration
   var migrations = MigrationConfig()
+  migrations.add(model: User.self, database: .mysql)
+  
   migrations.add(model: RangeQuestion.self, database: .mysql)
   migrations.add(model: RangeAnswer.self, database: .mysql)
   migrations.add(model: FourQuestion.self, database: .mysql)
@@ -48,11 +51,25 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
   
   services.register(migrations)
   
-  // Leaf
+  // MARK: - Config
+  
+  //Leaf
   config.prefer(LeafRenderer.self, for: ViewRenderer.self)
+  
+  // Auth
+  config.prefer(MemoryKeyedCache.self, for: KeyedCache.self)
+  
 
+  // MARK: - Middleware
+  
   var middlewares = MiddlewareConfig()
+  
   middlewares.use(FileMiddleware.self)
   middlewares.use(ErrorMiddleware.self)
+  
+  // Auth
+  try services.register(AuthenticationProvider())
+  middlewares.use(SessionsMiddleware.self)
+  
   services.register(middlewares)
 }
