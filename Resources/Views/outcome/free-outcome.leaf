@@ -9,7 +9,7 @@
         
         #for(question in freeQuestionList) {
         <tr>
-          <td colspan="2" class="text-center">
+          <td colspan="2">
             <h4>#(question.freeQuestion.description)</h4>
           </td>
         </tr>
@@ -17,7 +17,7 @@
         
         #for(element in question.freeAnswerContextList) {
         <tr>
-          <td  class="text-center">#(element.description)</td>
+          <td>#(element.description)</td>
         </tr>
         }
         
