@@ -94,9 +94,12 @@ final class OutcomeController {
           
           let countMultiplier = 100 / Double(answerList.count)
           
-          for index in 0...reducedAnswerList.count-1 {
-            reducedAnswerList[index].count = reducedAnswerList[index].count * countMultiplier
+          if reducedAnswerList.count > 0 {
+            for index in 0...reducedAnswerList.count-1 {
+              reducedAnswerList[index].count = reducedAnswerList[index].count * countMultiplier
+            }
           }
+          
           
           // Fill up array with missing range answers
           var rangeAnswerDummyList = [
