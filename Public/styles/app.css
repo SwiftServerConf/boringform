@@ -1,19 +1,45 @@
 body, html {
 	height: 100%;
+	background-color: #1b2938 !important;
 }
 
 body {
 	font-family: sans-serif;
 }
 
-div.welcome {
-	height: 100%;
-	text-align: center;
+.answer {
+  border-right: 1px solid black;
 }
 
-div.welcome img {
-	position: relative;
-  	top: 50%;
-  	transform: translateY(-50%);
-	width: 300px;
+.percentage-80,
+.percentage-15,
+.percentage-5 {
+  background: blue;
+  color: white;
+  position: absolute;
+  height: 30px;
+}
+
+.percentage-80 {
+  width: 80%;
+}
+
+.percentage-15 {
+  width: 15%;
+}
+
+.percentage-5 {
+  width: 5%;
+}
+
+.table td {
+  vertical-align: middle !important;
+}
+
+.card form .card {
+  height: 235px;
+}
+
+nav.navbar .navbar-nav {
+  width: 100%;
 }

@@ -1,0 +1,37 @@
+<div class="p-2">
+  <ul class="nav nav-tabs nav-fill">
+    <li class="nav-item">
+      <a class="nav-link #if(number == 1){active}" href="/q-1">1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(number == 2){active}" href="/q-2">2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(number == 3){active}" href="/q-3">3</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(number == 4){active}" href="/q-4">4</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(number == 5){active}" href="/q-5">5</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(number == 6){active}" href="/q-6">6</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(number == 7){active}" href="/q-7">7</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(number == 8){active}" href="/q-8">8</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(number == 9){active}" href="/q-9">9</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(number == 10){active}" href="/q-10">10</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(number == 11){active}" href="/q-11">11</a>
+    </li>
+  </ul>
+</div>

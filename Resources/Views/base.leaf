@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>#get(title)</title>
-	<link rel="stylesheet" href="/styles/app.css">
-</head>
-<body>
-    #get(body)
-</body>
+  <head>
+    <title>#get(title)</title>
+    <link rel="stylesheet" href="/styles/app.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+      <div class="container">
+        <ul class="navbar-nav flex-row">
+          <li class="nav-item mr-auto">
+            <a href="/" class="nav-link #if(navigation == "home"){active}"> Home </a>
+          </li>
+          <li class="nav-item">
+            <a href="/q-1" class="nav-link #if(number){active}"> Survey </a>
+          </li>
+          <li class="nav-item">
+            <a href="/four-outcome" class="nav-link #if(navigation == "outcome"){active}"> Outcome </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container pt-5 pb-5">
+      <h1 class="text-white text-center pb-2">Workshops Feedback</h1>
+      <div class="card bg-white">
+        #get(body)
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,0 +1,15 @@
+<div class="row pb-2">
+  <div class="col-auto mr-auto">
+    <button type="submit" class="btn btn-primary btn-lg mt-3">Submit</button>
+  </div>
+  <div class="col-auto">
+    <a
+      href="/q-#(number - 1)"
+      class="btn btn-lg mt-3 #if(number == 1) {disabled btn-outline-secondary} else { btn-outline-primary }"
+    > Previous </a>
+    <a
+      href="/q-#(number + 1)"
+      class="btn btn-lg mt-3 #if(number == 11) {disabled btn-outline-secondary} else { btn-outline-primary }"
+    > Next </a>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="p-2">
+  <ul class="nav nav-tabs nav-fill">
+    <li class="nav-item">
+      <a class="nav-link #if(route == "four-outcome"){active}" href="/four-outcome">Workshop (Four)</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(route == "range-outcome"){active}" href="/range-outcome">Range</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(route == "free-outcome"){active}" href="/free-outcome">Free Text</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(route == "two-outcome"){active}" href="/two-outcome">Days (Two)</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link #if(route == "three-outcome"){active}" href="/three-outcome">Three</a>
+    </li>
+  </ul>
+</div>

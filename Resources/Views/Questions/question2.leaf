@@ -1,0 +1,28 @@
+#set("title") { BoringForm }
+
+#set("body") {
+#embed("partials/form-navigation")
+
+  <form method="POST" class="pl-2 pr-2">
+
+  <input name="questionNumber" value="#(number)" class="d-none" />
+  <input name="questionID" value="#(id)" class="d-none" />
+  <div class="card bg-dark text-white p-3">
+    <h3>#(number). #(description)</h3>
+    
+    <div class="form-group">
+      <label for="range">Poor to Outstanding</label>
+      <select class="form-control" id="range" name="range">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </div>
+  #embed("partials/form-buttons")
+</form>
+}
+
+#embed("base")

@@ -1,0 +1,34 @@
+#set("title") { BoringForm }
+
+#set("body") {
+#embed("partials/form-navigation")
+  
+  <form method="POST" class="pl-2 pr-2">
+    <input name="questionNumber" value="#(number)" class="d-none" />
+    <input name="questionID" value="#(id)" class="d-none" />
+    <div class="card bg-dark text-white p-3">
+        <h3>#(number). #(description)</h3>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="kitura" name="kitura">
+          <label class="form-check-label" for="kitura">Server-side web apps with Kitura and Stencel</label>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="vapor" name="vapor">
+          <label class="form-check-label" for="vapor">Deploying Your First Vapor API</label>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="perfect" name="perfect">
+          <label class="form-check-label" for="perfect">An Introduction To Perfect</label>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="hacking101" name="hacking101">
+          <label class="form-check-label" for="hacking101">Hacking 101 - How To Protect Your Websites</label>
+        </div>
+    </div>
+    #embed("partials/form-buttons")
+  </form>
+
+
+}
+
+#embed("base")

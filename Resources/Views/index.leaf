@@ -1,0 +1,14 @@
+#set("title") { BoringForm }
+
+#set("body") {
+  <div class="row">
+    <div class="col-6 p-5 text-center">
+      <a href="/q-1" class="btn btn-primary btn-lg btn-block text-white text-center"> Start the Survey </a>
+    </div>
+    <div class="col-6 p-5 text-center">
+      <a href="/four-outcome" class="btn btn-primary btn-lg btn-block text-white text-center"> See the Outcome </a>
+    </div>
+  </div>
+}
+
+#embed("base")
